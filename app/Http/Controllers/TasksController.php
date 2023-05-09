@@ -41,4 +41,10 @@ class TasksController extends Controller
         //dd($task) sirve para debug
         return redirect()->route('tasks')->with('success','Tarea actualizada');
     }
+
+    public function destroy($id){
+        $task = Task::find($id);
+        $task->delete();
+        return redirect()->route('tasks')->with('success','Tarea eliminada');
+    }
 }
